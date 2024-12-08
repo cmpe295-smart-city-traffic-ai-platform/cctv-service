@@ -57,7 +57,8 @@ const CCTV = () => {
     // Fetch devices from backend
     const getDevices = async () => {
         try {
-            const response = await axios.get(`${BASE_URL}/api/cctvs/active`);
+            //const response = await axios.get(`${BASE_URL}/api/cctvs/active`);
+            const response = await axios.get(`${BASE_URL}/api/cctvs/my-devices/${userId}`);
             setCctvDevices(response.data);
         } catch (error) {
             console.error("Error fetching CCTV devices: ", error);
