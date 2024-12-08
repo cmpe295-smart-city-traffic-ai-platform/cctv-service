@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: cctv-service-ingress-controller
+  namespace: smart-city-traffic
+  annotations:
+    kubernetes.io/ingress.class: kong
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  ingressClassName: kong
+  rules:
+    - http:
+        paths:
+          - path: /api/cctvs(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: cctv-service
+                port:
+                  number: 8080
+          - path: /api/cctv(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: cctv-service
+                port:
+                  number: 8080
