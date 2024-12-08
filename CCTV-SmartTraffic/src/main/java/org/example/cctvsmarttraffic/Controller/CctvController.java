@@ -39,9 +39,9 @@ public class CctvController {
     }
 
     // API 2: Get devices created by the logged-in traffic agent
-    @GetMapping("/my-devices")
-    public List<Cctv> getDevicesCreatedByAgent(Authentication authentication) {
-        UUID userId = UUID.fromString(authentication.getName()); // Retrieve user ID from authentication
+    @GetMapping("/my-devices/{userId}")
+    public List<Cctv> getDevicesCreatedByAgent(@PathVariable UUID userId) {
+        //UUID userId = UUID.fromString(authentication.getName()); // Retrieve user ID from authentication
         return cctvService.getDevicesByUserId(userId);
     }
 
