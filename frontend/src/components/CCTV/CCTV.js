@@ -69,7 +69,7 @@ const CCTV = () => {
     const createCctvDevice = async () => {
         try {
             const response = await axios.post(`${BASE_URL}/api/cctvs/add`, {
-                deviceId: cctvDevices.length + 1,
+                deviceId: deviceId,
                 name: deviceName,
                 location: deviceLocation,
                 address: deviceAddress,
