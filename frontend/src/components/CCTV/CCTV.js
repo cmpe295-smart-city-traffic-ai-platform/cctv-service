@@ -93,6 +93,7 @@ const CCTV = () => {
     // Edit a CCTV device
     const editCctvDevice = (device) => {
         setDeviceName(device.name);
+        setDeviceId(device.deviceId);
         setDeviceLocation(device.location);
         setDeviceAddress(device.address);
         setDeviceCounty(device.county);
